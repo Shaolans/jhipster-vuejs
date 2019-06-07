@@ -22,7 +22,7 @@ export const isHidden = (selector: ElementFinder) => {
  */
 export const waitUntilDisplayed = async (selector: ElementFinder, classname = '', timeout = waitUntilDisplayedTimeout) => {
   if (!checkSelectorExist(selector)) return;
-  browser.sleep(2500);
+  await browser.sleep(2500);
   await browser.wait(
     isDisplayed(selector),
     timeout,
@@ -35,7 +35,7 @@ export const waitUntilDisplayed = async (selector: ElementFinder, classname = ''
  */
 export const waitUntilClickable = async (selector: ElementFinder, classname = '', timeout = waitUntilDisplayedTimeout) => {
   if (!checkSelectorExist(selector)) return;
-   browser.sleep(2500);
+   await browser.sleep(2500);
    await browser.wait(
     ExpectedConditions.elementToBeClickable(selector),
     timeout,
@@ -46,7 +46,7 @@ export const waitUntilClickable = async (selector: ElementFinder, classname = ''
 export const waitUntilHidden = async (selector: ElementFinder, classname = '', timeout = waitUntilDisplayedTimeout) => {
   if (!checkSelectorExist(selector)) return;
 
-  browser.sleep(2500);
+  await browser.sleep(2500);
   await browser.wait(
     isHidden(selector),
     timeout,
@@ -63,7 +63,7 @@ export const waitUntilCount = async (
   expectedCount: number,
   timeout = waitUntilDisplayedTimeout
 ) => {
-  browser.sleep(2500);
+  await browser.sleep(2500);
   await browser.wait(
     await waitForCount(elementArrayFinder, expectedCount),
     timeout,

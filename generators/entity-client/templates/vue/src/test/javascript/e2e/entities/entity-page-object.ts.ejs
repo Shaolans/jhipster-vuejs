@@ -82,10 +82,12 @@ export default class <%= entityClass %>ComponentsPage {
   }
 
   async waitUntilLoaded() {
+    browser.sleep(2500);
     await waitUntilDisplayed(element.all(by.css('div table .btn-danger')).first());
   }
 
   async waitUntilDeleteButtonsLength(length) {
+    browser.sleep(2500);
     await waitUntilCount(element.all(by.css('div table .btn-danger')), length);
   }
 }
